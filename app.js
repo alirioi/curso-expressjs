@@ -1,7 +1,10 @@
 require("dotenv").config();
-
 const express = require("express");
+const bodyParser = require("body-parser");
+
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 
@@ -11,6 +14,20 @@ app.get("/", (req, res) => {
     <p>Esto es una aplicación Node.js con Express.js.</p>
     <p>Corre en el puerto ${PORT}</p>
     `);
+});
+
+app.get("/users/:id", (req, res) => {
+  const userId = req.params.id;
+  res.send(`User ID requested: ${userId}`);
+});
+
+app.get("/search", (req, res) => {
+  const terms = req.query.terms || "No terms provided";
+  const category = req.query.category || "all";
+
+  res.send(`<h2>Search Results:</h2>
+            <p>Terms: ${terms}</p>
+            <p>Category: ${category}</p>`);
 });
 
 app.listen(PORT, () => {
