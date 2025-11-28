@@ -1,14 +1,18 @@
 {
   "name": "curso-expressjs",
   "version": "1.0.0",
-  "description": "",
+  "description": "curso de fundamentos de expressjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "expressjs",
+    "nodejs",
+    "curso"
+  ],
+  "author": "Alirio Isea <isealirio@gmail.com>",
+  "license": "MIT",
   "packageManager": "pnpm@10.18.3",
   "dependencies": {
     "express": "^5.1.0"
