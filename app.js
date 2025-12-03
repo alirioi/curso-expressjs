@@ -30,6 +30,22 @@ app.get("/search", (req, res) => {
             <p>Category: ${category}</p>`);
 });
 
+app.post("/form", (req, res) => {
+  const name = req.body.name || "Guest";
+  const email = req.body.email || "No email provided";
+  res.json({ message: `Form submitted successfully`, data: { name, email } });
+});
+
+app.post("/api/data", (req, res) => {
+  const data = req.body;
+
+  if (!data || Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "No data provided" });
+  }
+
+  res.status(201).json({ message: "Data received successfully", data });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
